@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>Zásady ochrany soukromí | Banán</title>
+<style>
+:root{
+  --bg:#0f1115; --card:#171a21; --text:#f4f5f7; --muted:#b9bec8;
+  --yellow:#f6c945; --border:#2b3039; --link:#ffd85a;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  line-height:1.62;
+}
+.wrap{max-width:900px;margin:0 auto;padding:24px 18px 64px}
+header{
+  display:flex;justify-content:space-between;align-items:center;gap:16px;
+  padding:18px 0 24px;border-bottom:1px solid var(--border);margin-bottom:24px;
+  flex-wrap:wrap
+}
+.brand{font-weight:800;font-size:22px}.brand span{color:var(--yellow)}
+nav a{margin-right:16px}
+h1{font-size:34px;line-height:1.2;margin:12px 0}
+h2{margin-top:34px;font-size:22px}
+p,li{color:var(--text)}
+.muted{color:var(--muted)}
+.card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:16px;padding:20px;margin:18px 0
+}
+a{color:var(--link);text-decoration:none}
+a:hover{text-decoration:underline}
+.langbar{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0 24px}
+.langbar button{
+  border:1px solid var(--border);background:var(--card);color:var(--text);
+  border-radius:999px;padding:8px 14px;cursor:pointer;font-weight:700
+}
+.langbar button.active{background:var(--yellow);color:#111;border-color:var(--yellow)}
+.lang{display:none}.lang.active{display:block}
+.notice{
+  background:#2b2413;border:1px solid #6b5720;border-radius:12px;
+  padding:14px 16px;margin:18px 0
+}
+footer{
+  margin-top:40px;padding-top:18px;border-top:1px solid var(--border);
+  color:var(--muted);font-size:14px
+}
+ul{padding-left:22px}
+</style>
+<script>
+function setLang(lang){
+  document.querySelectorAll('.lang').forEach(el=>el.classList.remove('active'));
+  document.querySelectorAll('.lang-'+lang).forEach(el=>el.classList.add('active'));
+  document.querySelectorAll('[data-langbtn]').forEach(
+    b=>b.classList.toggle('active', b.dataset.langbtn===lang)
+  );
+  document.documentElement.lang=lang;
+  localStorage.setItem('bananLegalLang',lang);
+}
+document.addEventListener('DOMContentLoaded',()=>{
+  const saved=localStorage.getItem('bananLegalLang');
+  const browser=(navigator.language||'').toLowerCase().startsWith('cs')?'cs':'en';
+  setLang(saved||browser);
+});
+</script>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="brand">🍌 <span>Banán</span> – kalorický kouč</div>
+  <nav>
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html">Terms</a>
+    <a href="support.html">Support</a>
+  </nav>
+</header>
+
+<div class="langbar">
+  <button data-langbtn="cs" onclick="setLang('cs')">Čeština</button>
+  <button data-langbtn="en" onclick="setLang('en')">English</button>
+</div>
+
+<section class="lang lang-cs">
+<h1>Zásady ochrany soukromí</h1>
+<p class="muted">Tyto zásady se vztahují na aplikaci Banán pro iOS a Android.</p>
+
+<h2>1. Kontakt</h2>
+<p>Pro otázky týkající se ochrany soukromí a podpory nás můžete kontaktovat na
+<a href="mailto:madhroud@email.cz">madhroud@email.cz</a>.</p>
+
+<h2>2. Jak Banán pracuje s daty</h2>
+<p>Banán je navržen především jako offline aplikace. Údaje zadané uživatelem,
+například jídelníček, denní příjem, makroživiny, vlastní potraviny a jídla,
+tělesné míry, aktivita, nastavení a historie, jsou běžně ukládány lokálně v zařízení.</p>
+<p>Banán nepoužívá externí nutriční API pro běžné výpočty, generování jídelníčku
+ani nákupní seznam. Nutriční databáze je součástí aplikace.</p>
+
+<h2>3. Údaje, které vývojář běžně neshromažďuje</h2>
+<p>Pokud není v konkrétní verzi aplikace výslovně uvedeno jinak, Banán neodesílá
+vývojáři obsah jídelníčku, tělesné míry ani historii stravování a nepoužívá tyto údaje
+pro reklamní profilování.</p>
+
+<h2>4. Předplatné a nákupy</h2>
+<p>Předplatné je na iOS zpracováváno prostřednictvím Apple App Store / StoreKit
+a na Androidu prostřednictvím Google Play. Banán přímo nezpracovává údaje o platební kartě.</p>
+<p>Aplikace může obdržet technické informace potřebné k určení, zda má uživatel
+aktivní nárok na prémiové funkce.</p>
+
+<h2>5. Oznámení</h2>
+<p>Pokud uživatel povolí připomínky, Banán může plánovat lokální oznámení,
+například připomínky pitného režimu. Tato oznámení lze kdykoli změnit nebo vypnout
+v nastavení systému.</p>
+
+<h2>6. Export a sdílení</h2>
+<p>Banán umožňuje export nebo sdílení některých údajů pomocí systémových funkcí zařízení.
+Po zvolení sdílení rozhoduje uživatel, do jaké aplikace nebo služby data odešle.</p>
+
+<h2>7. Uchování a odstranění dat</h2>
+<p>Lokálně uložená data zůstávají v zařízení, dokud je uživatel neodstraní pomocí funkcí aplikace,
+resetem dat nebo odinstalováním aplikace.</p>
+
+<h2>8. Údaje související se zdravím</h2>
+<p>Banán může lokálně pracovat s údaji souvisejícími se zdravím nebo životním stylem,
+například s tělesnými mírami, cíli, aktivitou a stravovacími záznamy.
+Aplikace není zdravotnickým prostředkem a nenahrazuje odbornou zdravotní péči.</p>
+
+<h2>9. Změny zásad</h2>
+<p>Tyto zásady mohou být aktualizovány při změně funkcí aplikace nebo právních požadavků.
+Aktuální verze bude vždy zveřejněna na této stránce.</p>
+</section>
+<section class="lang lang-en">
+<h1>Privacy Policy</h1>
+<p class="muted">This policy applies to the Banán app for iOS and Android.</p>
+
+<h2>1. Contact</h2>
+<p>For privacy or support questions, contact us at
+<a href="mailto:madhroud@email.cz">madhroud@email.cz</a>.</p>
+
+<h2>2. How Banán handles data</h2>
+<p>Banán is designed primarily as an offline app. Information entered by the user,
+such as food logs, daily intake, macronutrients, custom foods and meals,
+body measurements, activity, settings and history, is normally stored locally on the device.</p>
+<p>Banán does not rely on an external nutrition API for normal calculations,
+meal-plan generation or shopping lists. The nutrition database is bundled with the app.</p>
+
+<h2>3. Data the developer does not normally collect</h2>
+<p>Unless a specific app version explicitly states otherwise, Banán does not transmit
+food-log contents, body measurements or diet history to the developer and does not use
+such information for advertising profiling.</p>
+
+<h2>4. Subscriptions and purchases</h2>
+<p>Subscriptions are processed through Apple App Store / StoreKit on iOS and Google Play
+on Android. Banán does not directly process payment-card details.</p>
+<p>The app may receive technical entitlement information needed to determine whether
+premium features should be available.</p>
+
+<h2>5. Notifications</h2>
+<p>If the user enables reminders, Banán may schedule local notifications,
+such as hydration reminders. These can be changed or disabled in system settings.</p>
+
+<h2>6. Export and sharing</h2>
+<p>Banán can export or share selected data using system sharing features.
+The user chooses the destination app or service.</p>
+
+<h2>7. Retention and deletion</h2>
+<p>Locally stored data remains on the device until the user removes it through app functions,
+resets the app data or uninstalls the app.</p>
+
+<h2>8. Health-related information</h2>
+<p>Banán may locally process health- or lifestyle-related information, such as body measurements,
+goals, activity and dietary records. Banán is not a medical device and does not replace
+professional medical care.</p>
+
+<h2>9. Changes to this policy</h2>
+<p>This policy may be updated when app functionality or legal requirements change.
+The current version will be published on this page.</p>
+</section>
+
+<footer>
+  <div class="lang lang-cs">Poslední aktualizace: 8. října 2026</div>
+  <div class="lang lang-en">Last updated: October 8, 2026</div>
+</footer>
+</div>
+</body>
+</html>

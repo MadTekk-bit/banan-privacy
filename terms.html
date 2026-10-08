@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>Podmínky použití | Banán</title>
+<style>
+:root{
+  --bg:#0f1115; --card:#171a21; --text:#f4f5f7; --muted:#b9bec8;
+  --yellow:#f6c945; --border:#2b3039; --link:#ffd85a;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  line-height:1.62;
+}
+.wrap{max-width:900px;margin:0 auto;padding:24px 18px 64px}
+header{
+  display:flex;justify-content:space-between;align-items:center;gap:16px;
+  padding:18px 0 24px;border-bottom:1px solid var(--border);margin-bottom:24px;
+  flex-wrap:wrap
+}
+.brand{font-weight:800;font-size:22px}.brand span{color:var(--yellow)}
+nav a{margin-right:16px}
+h1{font-size:34px;line-height:1.2;margin:12px 0}
+h2{margin-top:34px;font-size:22px}
+p,li{color:var(--text)}
+.muted{color:var(--muted)}
+.card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:16px;padding:20px;margin:18px 0
+}
+a{color:var(--link);text-decoration:none}
+a:hover{text-decoration:underline}
+.langbar{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0 24px}
+.langbar button{
+  border:1px solid var(--border);background:var(--card);color:var(--text);
+  border-radius:999px;padding:8px 14px;cursor:pointer;font-weight:700
+}
+.langbar button.active{background:var(--yellow);color:#111;border-color:var(--yellow)}
+.lang{display:none}.lang.active{display:block}
+.notice{
+  background:#2b2413;border:1px solid #6b5720;border-radius:12px;
+  padding:14px 16px;margin:18px 0
+}
+footer{
+  margin-top:40px;padding-top:18px;border-top:1px solid var(--border);
+  color:var(--muted);font-size:14px
+}
+ul{padding-left:22px}
+</style>
+<script>
+function setLang(lang){
+  document.querySelectorAll('.lang').forEach(el=>el.classList.remove('active'));
+  document.querySelectorAll('.lang-'+lang).forEach(el=>el.classList.add('active'));
+  document.querySelectorAll('[data-langbtn]').forEach(
+    b=>b.classList.toggle('active', b.dataset.langbtn===lang)
+  );
+  document.documentElement.lang=lang;
+  localStorage.setItem('bananLegalLang',lang);
+}
+document.addEventListener('DOMContentLoaded',()=>{
+  const saved=localStorage.getItem('bananLegalLang');
+  const browser=(navigator.language||'').toLowerCase().startsWith('cs')?'cs':'en';
+  setLang(saved||browser);
+});
+</script>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="brand">🍌 <span>Banán</span> – kalorický kouč</div>
+  <nav>
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html">Terms</a>
+    <a href="support.html">Support</a>
+  </nav>
+</header>
+
+<div class="langbar">
+  <button data-langbtn="cs" onclick="setLang('cs')">Čeština</button>
+  <button data-langbtn="en" onclick="setLang('en')">English</button>
+</div>
+
+<section class="lang lang-cs">
+<h1>Podmínky použití</h1>
+<p class="muted">Podmínky pro používání aplikace Banán pro iOS a Android.</p>
+
+<h2>1. Používání aplikace</h2>
+<p>Používáním aplikace Banán uživatel souhlasí s těmito podmínkami.
+Aplikace slouží k orientačnímu sledování stravy, energie, makroživin,
+aktivity, tělesných údajů a souvisejících cílů.</p>
+
+<h2>2. Nejde o zdravotnickou službu</h2>
+<p>Banán není zdravotnickým prostředkem a neposkytuje lékařskou diagnózu ani léčbu.
+Výstupy aplikace mají informativní charakter a nemají nahrazovat doporučení lékaře
+nebo jiného kvalifikovaného odborníka.</p>
+
+<h2>3. Výpočty a databáze</h2>
+<p>Nutriční hodnoty a výpočty jsou založeny na interní databázi a běžných výpočtových metodách.
+Skutečné hodnoty konkrétních potravin se mohou lišit podle výrobce, receptury, přípravy a dalších faktorů.
+Generované jídelníčky mohou obsahovat malé odchylky od cílových hodnot.</p>
+
+<h2>4. Předplatné</h2>
+<p>Prémiové funkce mohou být zpřístupněny prostřednictvím automaticky obnovovaného předplatného.
+Na iOS jsou platby spravovány Apple App Store, na Androidu Google Play.
+Cena, délka předplatného, případná zkušební doba a podmínky obnovení jsou zobrazeny
+v příslušném obchodě před potvrzením nákupu.</p>
+<p>Zrušení předplatného se provádí v nastavení příslušného účtu Apple nebo Google.</p>
+
+<h2>5. Dostupnost služby</h2>
+<p>Vývojář se snaží udržovat aplikaci funkční a aktuální, ale nemůže garantovat nepřetržitou
+dostupnost všech funkcí nebo úplnou bezchybnost.</p>
+
+<h2>6. Odpovědnost uživatele</h2>
+<p>Uživatel odpovídá za správnost zadaných údajů a za rozhodnutí, která na základě aplikace učiní.</p>
+
+<h2>7. Duševní vlastnictví</h2>
+<p>Název Banán, design aplikace, databázové uspořádání, texty, ilustrace a další obsah aplikace
+jsou chráněny příslušnými právy, pokud není uvedeno jinak.</p>
+
+<h2>8. Ukončení používání</h2>
+<p>Uživatel může aplikaci kdykoli přestat používat a odstranit ji ze zařízení.
+Správa aktivního předplatného probíhá přes příslušný obchod.</p>
+
+<h2>9. Kontakt</h2>
+<p>Podpora a dotazy: <a href="mailto:madhroud@email.cz">madhroud@email.cz</a>.</p>
+</section>
+<section class="lang lang-en">
+<h1>Terms of Use</h1>
+<p class="muted">Terms for using the Banán app on iOS and Android.</p>
+
+<h2>1. Use of the app</h2>
+<p>By using Banán, the user agrees to these terms.
+The app is intended for tracking nutrition, energy intake, macronutrients,
+activity, body-related information and related goals.</p>
+
+<h2>2. Not a medical service</h2>
+<p>Banán is not a medical device and does not provide medical diagnosis or treatment.
+App outputs are informational and do not replace advice from a physician or other qualified professional.</p>
+
+<h2>3. Calculations and database</h2>
+<p>Nutritional values and calculations are based on an internal database and standard calculation methods.
+Actual values may vary by manufacturer, recipe, preparation and other factors.
+Generated meal plans may contain small deviations from target values.</p>
+
+<h2>4. Subscriptions</h2>
+<p>Premium features may be offered through an auto-renewable subscription.
+Payments are managed by Apple App Store on iOS and Google Play on Android.
+Price, duration, any free trial and renewal terms are shown by the relevant store before purchase confirmation.</p>
+<p>Subscriptions can be cancelled in the relevant Apple or Google account settings.</p>
+
+<h2>5. Availability</h2>
+<p>The developer aims to keep the app functional and up to date, but cannot guarantee
+continuous availability of every feature or complete absence of errors.</p>
+
+<h2>6. User responsibility</h2>
+<p>The user is responsible for the accuracy of information entered into the app
+and for decisions made based on app outputs.</p>
+
+<h2>7. Intellectual property</h2>
+<p>The Banán name, app design, database structure, texts, illustrations and other app content
+are protected by applicable rights unless stated otherwise.</p>
+
+<h2>8. Ending use</h2>
+<p>The user may stop using and uninstall the app at any time.
+Active subscriptions are managed through the relevant app store.</p>
+
+<h2>9. Contact</h2>
+<p>Support and questions: <a href="mailto:madhroud@email.cz">madhroud@email.cz</a>.</p>
+</section>
+
+<footer>
+  <div class="lang lang-cs">Poslední aktualizace: 8. října 2026</div>
+  <div class="lang lang-en">Last updated: October 8, 2026</div>
+</footer>
+</div>
+</body>
+</html>

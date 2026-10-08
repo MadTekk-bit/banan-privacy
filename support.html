@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>Podpora | Banán</title>
+<style>
+:root{
+  --bg:#0f1115; --card:#171a21; --text:#f4f5f7; --muted:#b9bec8;
+  --yellow:#f6c945; --border:#2b3039; --link:#ffd85a;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+  line-height:1.62;
+}
+.wrap{max-width:900px;margin:0 auto;padding:24px 18px 64px}
+header{
+  display:flex;justify-content:space-between;align-items:center;gap:16px;
+  padding:18px 0 24px;border-bottom:1px solid var(--border);margin-bottom:24px;
+  flex-wrap:wrap
+}
+.brand{font-weight:800;font-size:22px}.brand span{color:var(--yellow)}
+nav a{margin-right:16px}
+h1{font-size:34px;line-height:1.2;margin:12px 0}
+h2{margin-top:34px;font-size:22px}
+p,li{color:var(--text)}
+.muted{color:var(--muted)}
+.card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:16px;padding:20px;margin:18px 0
+}
+a{color:var(--link);text-decoration:none}
+a:hover{text-decoration:underline}
+.langbar{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0 24px}
+.langbar button{
+  border:1px solid var(--border);background:var(--card);color:var(--text);
+  border-radius:999px;padding:8px 14px;cursor:pointer;font-weight:700
+}
+.langbar button.active{background:var(--yellow);color:#111;border-color:var(--yellow)}
+.lang{display:none}.lang.active{display:block}
+.notice{
+  background:#2b2413;border:1px solid #6b5720;border-radius:12px;
+  padding:14px 16px;margin:18px 0
+}
+footer{
+  margin-top:40px;padding-top:18px;border-top:1px solid var(--border);
+  color:var(--muted);font-size:14px
+}
+ul{padding-left:22px}
+</style>
+<script>
+function setLang(lang){
+  document.querySelectorAll('.lang').forEach(el=>el.classList.remove('active'));
+  document.querySelectorAll('.lang-'+lang).forEach(el=>el.classList.add('active'));
+  document.querySelectorAll('[data-langbtn]').forEach(
+    b=>b.classList.toggle('active', b.dataset.langbtn===lang)
+  );
+  document.documentElement.lang=lang;
+  localStorage.setItem('bananLegalLang',lang);
+}
+document.addEventListener('DOMContentLoaded',()=>{
+  const saved=localStorage.getItem('bananLegalLang');
+  const browser=(navigator.language||'').toLowerCase().startsWith('cs')?'cs':'en';
+  setLang(saved||browser);
+});
+</script>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="brand">🍌 <span>Banán</span> – kalorický kouč</div>
+  <nav>
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html">Terms</a>
+    <a href="support.html">Support</a>
+  </nav>
+</header>
+
+<div class="langbar">
+  <button data-langbtn="cs" onclick="setLang('cs')">Čeština</button>
+  <button data-langbtn="en" onclick="setLang('en')">English</button>
+</div>
+
+<section class="lang lang-cs">
+<h1>Podpora</h1>
+<div class="card">
+<h2>Kontakt</h2>
+<p>E-mail podpory: <a href="mailto:madhroud@email.cz"><strong>madhroud@email.cz</strong></a></p>
+</div>
+
+<h2>S čím vám můžeme pomoci</h2>
+<ul>
+<li>technické problémy aplikace,</li>
+<li>problémy s nákupem nebo obnovením předplatného,</li>
+<li>chyby ve výpočtech nebo databázi potravin,</li>
+<li>problémy s exportem, upozorněními nebo nastavením jednotek,</li>
+<li>dotazy k ochraně soukromí.</li>
+</ul>
+
+<h2>Před kontaktováním podpory</h2>
+<p>Do zprávy prosím uveďte platformu (iOS / Android), verzi aplikace,
+stručný popis problému a pokud je to možné také postup, jak problém zopakovat.</p>
+
+<h2>Obnova předplatného</h2>
+<p>Pokud jste aplikaci přeinstalovali nebo změnili zařízení, použijte v aplikaci funkci
+pro obnovení nákupů. Platby a předplatné jsou spravovány příslušným obchodem App Store nebo Google Play.</p>
+</section>
+<section class="lang lang-en">
+<h1>Support</h1>
+<div class="card">
+<h2>Contact</h2>
+<p>Support email: <a href="mailto:madhroud@email.cz"><strong>madhroud@email.cz</strong></a></p>
+</div>
+
+<h2>What we can help with</h2>
+<ul>
+<li>technical issues,</li>
+<li>purchase or subscription restore problems,</li>
+<li>calculation or food database issues,</li>
+<li>export, notifications or unit-setting problems,</li>
+<li>privacy questions.</li>
+</ul>
+
+<h2>Before contacting support</h2>
+<p>Please include your platform (iOS / Android), app version,
+a short description of the issue and, if possible, steps to reproduce it.</p>
+
+<h2>Restoring subscriptions</h2>
+<p>If you reinstalled the app or changed devices, use the restore-purchases function in the app.
+Payments and subscriptions are managed by the relevant App Store or Google Play account.</p>
+</section>
+
+<footer>
+  <div class="lang lang-cs">Poslední aktualizace: 8. října 2026</div>
+  <div class="lang lang-en">Last updated: October 8, 2026</div>
+</footer>
+</div>
+</body>
+</html>
