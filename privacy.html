@@ -60,6 +60,9 @@ function setLang(lang){
     b=>b.classList.toggle('active', b.dataset.langbtn===lang)
   );
   document.documentElement.lang=lang;
+  document.getElementById('brand-name').textContent=lang==='cs'?'Banán':'Banana';
+  document.getElementById('brand-tagline').textContent=lang==='cs'?'– kalorický kouč':'– Calorie Coach';
+  document.title=lang==='cs'?'Zásady ochrany soukromí | Banán':'Privacy Policy | Banana';
   localStorage.setItem('bananLegalLang',lang);
 }
 document.addEventListener('DOMContentLoaded',()=>{
@@ -72,14 +75,13 @@ document.addEventListener('DOMContentLoaded',()=>{
 <body>
 <div class="wrap">
 <header>
-  <div class="brand">🍌 <span>Banán</span> – kalorický kouč</div>
+  <div class="brand">🍌 <span id="brand-name">Banán</span> <span id="brand-tagline">– kalorický kouč</span></div>
   <nav>
     <a href="privacy.html">Privacy</a>
     <a href="terms.html">Terms</a>
     <a href="support.html">Support</a>
   </nav>
 </header>
-
 <div class="langbar">
   <button data-langbtn="cs" onclick="setLang('cs')">Čeština</button>
   <button data-langbtn="en" onclick="setLang('en')">English</button>
@@ -89,28 +91,28 @@ document.addEventListener('DOMContentLoaded',()=>{
 <h1>Zásady ochrany soukromí</h1>
 <p class="muted">Tyto zásady se vztahují na aplikaci Banán pro iOS a Android.</p>
 
-<h2>1. Kontakt</h2>
+<h2>1. Kontakt a správce osobních údajů</h2>
+<p><strong>Správce osobních údajů a provozovatel aplikace:</strong> Michal Kaska<br>
+<strong>IČO:</strong> 30136059<br>
+<strong>Sídlo:</strong> V lukách 518, 387 01 Volyně, Česká republika<br>
+<strong>Evidence:</strong> Zapsán v živnostenském rejstříku</p>
 <p>Pro otázky týkající se ochrany soukromí a podpory nás můžete kontaktovat na
 <a href="mailto:madhroud@email.cz">madhroud@email.cz</a>.</p>
-
 <h2>2. Jak Banán pracuje s daty</h2>
 <p>Banán je navržen především jako offline aplikace. Údaje zadané uživatelem,
 například jídelníček, denní příjem, makroživiny, vlastní potraviny a jídla,
 tělesné míry, aktivita, nastavení a historie, jsou běžně ukládány lokálně v zařízení.</p>
 <p>Banán nepoužívá externí nutriční API pro běžné výpočty, generování jídelníčku
 ani nákupní seznam. Nutriční databáze je součástí aplikace.</p>
-
 <h2>3. Údaje, které vývojář běžně neshromažďuje</h2>
 <p>Pokud není v konkrétní verzi aplikace výslovně uvedeno jinak, Banán neodesílá
 vývojáři obsah jídelníčku, tělesné míry ani historii stravování a nepoužívá tyto údaje
 pro reklamní profilování.</p>
-
 <h2>4. Předplatné a nákupy</h2>
 <p>Předplatné je na iOS zpracováváno prostřednictvím Apple App Store / StoreKit
 a na Androidu prostřednictvím Google Play. Banán přímo nezpracovává údaje o platební kartě.</p>
 <p>Aplikace může obdržet technické informace potřebné k určení, zda má uživatel
 aktivní nárok na prémiové funkce.</p>
-
 <h2>5. Oznámení</h2>
 <p>Pokud uživatel povolí připomínky, Banán může plánovat lokální oznámení,
 například připomínky pitného režimu. Tato oznámení lze kdykoli změnit nebo vypnout
@@ -119,71 +121,73 @@ v nastavení systému.</p>
 <h2>6. Export a sdílení</h2>
 <p>Banán umožňuje export nebo sdílení některých údajů pomocí systémových funkcí zařízení.
 Po zvolení sdílení rozhoduje uživatel, do jaké aplikace nebo služby data odešle.</p>
-
 <h2>7. Uchování a odstranění dat</h2>
-<p>Lokálně uložená data zůstávají v zařízení, dokud je uživatel neodstraní pomocí funkcí aplikace,
-resetem dat nebo odinstalováním aplikace.</p>
+<p>Uživatelské záznamy uložené přímo v aplikaci zůstávají v zařízení, dokud je uživatel neodstraní
+pomocí funkcí aplikace, resetem dat nebo odinstalováním aplikace.</p>
+<p>Technický údaj o využití bezplatného vyzkoušení může být na iOS uložen v systémové Klíčence
+(Keychain) a může zůstat zachován i po odinstalování aplikace. Slouží k zabránění opakovanému
+čerpání stejného bezplatného období.</p>
 
 <h2>8. Údaje související se zdravím</h2>
 <p>Banán může lokálně pracovat s údaji souvisejícími se zdravím nebo životním stylem,
 například s tělesnými mírami, cíli, aktivitou a stravovacími záznamy.
 Aplikace není zdravotnickým prostředkem a nenahrazuje odbornou zdravotní péči.</p>
-
 <h2>9. Změny zásad</h2>
 <p>Tyto zásady mohou být aktualizovány při změně funkcí aplikace nebo právních požadavků.
 Aktuální verze bude vždy zveřejněna na této stránce.</p>
 </section>
 <section class="lang lang-en">
 <h1>Privacy Policy</h1>
-<p class="muted">This policy applies to the Banán app for iOS and Android.</p>
+<p class="muted">This policy applies to the Banana app for iOS and Android.</p>
 
-<h2>1. Contact</h2>
+<h2>1. Contact and data controller</h2>
+<p><strong>Data controller and app operator:</strong> Michal Kaska<br>
+<strong>Business ID (IČO):</strong> 30136059<br>
+<strong>Registered business address:</strong> V lukách 518, 387 01 Volyně, Czech Republic<br>
+<strong>Business registration:</strong> Registered in the Czech Trade Licensing Register</p>
 <p>For privacy or support questions, contact us at
 <a href="mailto:madhroud@email.cz">madhroud@email.cz</a>.</p>
-
-<h2>2. How Banán handles data</h2>
-<p>Banán is designed primarily as an offline app. Information entered by the user,
+<h2>2. How Banana handles data</h2>
+<p>Banana is designed primarily as an offline app. Information entered by the user,
 such as food logs, daily intake, macronutrients, custom foods and meals,
 body measurements, activity, settings and history, is normally stored locally on the device.</p>
-<p>Banán does not rely on an external nutrition API for normal calculations,
+<p>Banana does not rely on an external nutrition API for normal calculations,
 meal-plan generation or shopping lists. The nutrition database is bundled with the app.</p>
-
 <h2>3. Data the developer does not normally collect</h2>
-<p>Unless a specific app version explicitly states otherwise, Banán does not transmit
+<p>Unless a specific app version explicitly states otherwise, Banana does not transmit
 food-log contents, body measurements or diet history to the developer and does not use
 such information for advertising profiling.</p>
-
 <h2>4. Subscriptions and purchases</h2>
 <p>Subscriptions are processed through Apple App Store / StoreKit on iOS and Google Play
-on Android. Banán does not directly process payment-card details.</p>
+on Android. Banana does not directly process payment-card details.</p>
 <p>The app may receive technical entitlement information needed to determine whether
 premium features should be available.</p>
-
 <h2>5. Notifications</h2>
-<p>If the user enables reminders, Banán may schedule local notifications,
+<p>If the user enables reminders, Banana may schedule local notifications,
 such as hydration reminders. These can be changed or disabled in system settings.</p>
 
 <h2>6. Export and sharing</h2>
-<p>Banán can export or share selected data using system sharing features.
+<p>Banana can export or share selected data using system sharing features.
 The user chooses the destination app or service.</p>
-
 <h2>7. Retention and deletion</h2>
-<p>Locally stored data remains on the device until the user removes it through app functions,
-resets the app data or uninstalls the app.</p>
+<p>User records stored directly by the app remain on the device until the user removes them
+through app functions, resets the app data or uninstalls the app.</p>
+<p>On iOS, technical information about use of the free introductory experience may be stored
+in the system Keychain and may remain after the app is uninstalled. This is used to prevent
+repeated use of the same free access period.</p>
 
 <h2>8. Health-related information</h2>
-<p>Banán may locally process health- or lifestyle-related information, such as body measurements,
-goals, activity and dietary records. Banán is not a medical device and does not replace
+<p>Banana may locally process health- or lifestyle-related information, such as body measurements,
+goals, activity and dietary records. Banana is not a medical device and does not replace
 professional medical care.</p>
-
 <h2>9. Changes to this policy</h2>
 <p>This policy may be updated when app functionality or legal requirements change.
 The current version will be published on this page.</p>
 </section>
 
 <footer>
-  <div class="lang lang-cs">Poslední aktualizace: 8. října 2026</div>
-  <div class="lang lang-en">Last updated: October 8, 2026</div>
+  <div class="lang lang-cs">Poslední aktualizace: 22. října 2026</div>
+  <div class="lang lang-en">Last updated: October 22, 2026</div>
 </footer>
 </div>
 </body>
